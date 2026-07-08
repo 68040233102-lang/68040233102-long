@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirusOMO | Digital Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- 1. CSS Variables & Reset --- */
+        :root {
+            --bg-color: #0d1117;        /* GitHub Dark Dimmed Background */
+            --card-bg: rgba(22, 27, 34, 0.7); /* Glassy Card */
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-muted: #8b949e;
+            --accent-color: #ff4d4d;    /* Red Accent */
+            --accent-hover: #ff1a1a;
+            --font-main: 'Prompt', sans-serif;
+            --radius: 12px;
+            --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at top right, rgba(255, 77, 77, 0.1), transparent 40%);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* --- 2. Layout Structure --- */
+        .container {
+            display: grid;
+            grid-template-columns: 280px 1fr; /* Sidebar fixed, Content auto */
+            gap: 24px;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* --- 3. Glassmorphism Card Style --- */
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 24px;
+        }
+
+        /* --- 4. Sidebar --- */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--border-color);
+            margin-bottom: 1rem;
+            object-fit: cover;
+            box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+            border-color: var(--accent-color);
+        }
+
+        .full-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .username {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-btn {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background: #21262d;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contact-btn:hover {
+            background: var(--border-color);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        /* --- 5. Main Content --- */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Section: Intro / Digital Resume */
+        .intro-header {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .typing-container {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            min-height: 3.6rem; /* Prevent layout shift */
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            background-color: var(--accent-color);
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tag {
+            background: rgba(255, 77, 77, 0.1);
+            color: var(--accent-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Section: Projects Grid */
+        .section-title {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .project-card {
+            background: rgba(13, 17, 23, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            transition: transform 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .project-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .project-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .lang-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 4px;
+        }
+
+        /* Section: Contribution Graph */
+        .graph-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            overflow-x: auto; /* Scroll on mobile if needed */
+        }
+        
+        .graph-grid {
+            display: grid;
+            grid-template-columns: repeat(52, 1fr); /* 52 Weeks */
+            gap: 3px;
+        }
+
+        .graph-cell {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            background-color: #161b22;
+            transition: all 0.2s ease;
+        }
+
+        .graph-cell:hover {
+            transform: scale(1.3);
+            border: 1px solid #fff;
+            z-index: 2;
+        }
+
+        /* Colors for graph levels */
+        .level-0 { background-color: #161b22; }
+        .level-1 { background-color: #490c0c; }
+        .level-2 { background-color: #961818; }
+        .level-3 { background-color: #d92626; }
+        .level-4 { background-color: #ff4d4d; }
+
+        /* --- 6. Responsive Design --- */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr; /* Stack vertically */
+            }
+
+            .sidebar {
+                position: relative; /* Remove sticky on mobile */
+                top: 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr; /* 1 Column for projects */
+            }
+
+            .typing-container {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <aside class="sidebar glass-card">
+            <img src="meon.png" alt="Profile" class="profile-img">
+            
+            <h1 class="full-name">ณัฐชัย ดำรงเชื้อ</h1>
+            <p class="username">VirusOMO</p>
+            <p class="bio">หน่วยสนับสนุน | Support Unit<br>Creating bugs... I mean features.</p>
+            
+            <div style="width: 100%; margin-top: 1rem;">
+                <a href="#" class="contact-btn"><i class="fab fa-github"></i> Follow on GitHub</a>
+                <a href="#" class="contact-btn"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="#" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <div class="contact-btn" style="border: none; background: transparent; cursor: default;">
+                    <i class="fas fa-map-marker-alt"></i> Bangkok, Thailand
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <section class="glass-card">
+                <p class="intro-header">README.md</p>
+                <div class="typing-container">
+                    สวัสดี! ผมชื่อ ณัฐชัย 👋<br>
+                    <span id="typing-text"></span><span class="cursor">&nbsp;</span>
+                </div>
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20
