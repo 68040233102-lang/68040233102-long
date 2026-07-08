@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>102 | Digital Portfolio</title>
+    <title>VirusOMO | Digital Portfolio</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -316,7 +316,7 @@
             
             <h1 class="full-name">เสกสรร ดอกคำแดง</h1>
             <p class="username">102</p>
-            <p class="bio">ผมชอบออกแบบ<br>สวัสดี</p>
+            <p class="bio">หน่วยสนับสนุน | Support Unit<br>Creating bugs... I mean features.</p>
             
             <div style="width: 100%; margin-top: 1rem;">
                 <a href="#" class="contact-btn"><i class="fab fa-github"></i> Follow on GitHub</a>
@@ -333,7 +333,146 @@
             <section class="glass-card">
                 <p class="intro-header">README.md</p>
                 <div class="typing-container">
-                    สวัสดี! ผมชื่อเสกสรร ดอกคำแดง 👋<br>
+                    สวัสดี! ผมชื่อ เสกสรรณ 👋<br>
                     <span id="typing-text"></span><span class="cursor">&nbsp;</span>
                 </div>
-                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;
+                    <p style="color: var(--text-muted); margin-bottom: 10px;">Tech Stack & Interests:</p>
+                <div class="tech-stack">
+                    <span class="tag">💻 Frontend Dev</span>
+                    <span class="tag">🎨 UI/UX Design</span>
+                    <span class="tag">🚀 JavaScript</span>
+                    <span class="tag">⚛️ React</span>
+                    <span class="tag">🔥 Firebase</span>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title"><i class="fas fa-thumbtack"></i> Pinned Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-title"><i class="fas fa-book-journal-whills"></i> Project Alpha</span>
+                                <span style="font-size: 0.8rem; border: 1px solid var(--border-color); padding: 2px 6px; border-radius: 10px;">Public</span>
+                            </div>
+                            <p class="project-desc">ระบบจัดการฐานข้อมูลไวรัสจำลอง สำหรับหน่วยงานสนับสนุน</p>
+                        </div>
+                        <div class="project-meta">
+                            <span><span class="lang-dot" style="background: #f1e05a;"></span>JavaScript</span>
+                            <span><i class="far fa-star"></i> 12</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-title"><i class="fas fa-shield-alt"></i> Security-Grid</span>
+                                <span style="font-size: 0.8rem; border: 1px solid var(--border-color); padding: 2px 6px; border-radius: 10px;">Public</span>
+                            </div>
+                            <p class="project-desc">Dashboard มอนิเตอร์ความปลอดภัยเครือข่าย แบบ Real-time</p>
+                        </div>
+                        <div class="project-meta">
+                            <span><span class="lang-dot" style="background: #e34c26;"></span>HTML</span>
+                            <span><i class="far fa-star"></i> 8</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-title"><i class="fas fa-bolt"></i> Fast-API-Connect</span>
+                            </div>
+                            <p class="project-desc">ตัวเชื่อมต่อ API ความเร็วสูง พัฒนาด้วย Node.js</p>
+                        </div>
+                        <div class="project-meta">
+                            <span><span class="lang-dot" style="background: #563d7c;"></span>CSS</span>
+                            <span><i class="far fa-star"></i> 5</span>
+                        </div>
+                    </div>
+
+                     <div class="project-card">
+                        <div>
+                            <div class="project-header">
+                                <span class="project-title"><i class="fas fa-code"></i> Portfolio-v1</span>
+                            </div>
+                            <p class="project-desc">เว็บพอร์ตโฟลิโอส่วนตัวเวอร์ชันแรก</p>
+                        </div>
+                        <div class="project-meta">
+                            <span><span class="lang-dot" style="background: #f1e05a;"></span>JS</span>
+                            <span><i class="far fa-star"></i> 20</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="glass-card">
+                <h2 class="section-title" style="font-size: 1rem; border:none;"><i class="fas fa-calendar-alt"></i> 1,337 contributions in the last year</h2>
+                <div class="graph-container">
+                    <div class="graph-grid" id="contribution-graph">
+                        </div>
+                    <div style="display: flex; justify-content: flex-end; align-items: center; gap: 5px; font-size: 0.7rem; color: var(--text-muted); margin-top: 8px;">
+                        Less
+                        <div class="graph-cell level-0"></div>
+                        <div class="graph-cell level-1"></div>
+                        <div class="graph-cell level-2"></div>
+                        <div class="graph-cell level-3"></div>
+                        <div class="graph-cell level-4"></div>
+                        More
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // --- 1. Typing Effect Logic ---
+        const textToType = "ผมชอบเขียนโค้ดและสร้างสรรค์สิ่งใหม่ๆ...";
+        const typingElement = document.getElementById('typing-text');
+        let charIndex = 0;
+
+        function typeWriter() {
+            if (charIndex < textToType.length) {
+                typingElement.innerHTML += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeWriter, 50); // Speed of typing
+            }
+        }
+
+        // Start typing when page loads
+        window.onload = () => {
+            typeWriter();
+            generateGraph();
+        };
+
+        // --- 2. Mock Contribution Graph Generator ---
+        function generateGraph() {
+            const graphContainer = document.getElementById('contribution-graph');
+            const totalWeeks = 52;
+            const daysPerWeek = 7;
+            const totalCells = totalWeeks * daysPerWeek;
+
+            for (let i = 0; i < totalCells; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('graph-cell');
+                
+                // Randomly assign activity levels (weighted towards level 0-1 for realism)
+                const rand = Math.random();
+                let level = 0;
+                if (rand > 0.9) level = 4;
+                else if (rand > 0.8) level = 3;
+                else if (rand > 0.6) level = 2;
+                else if (rand > 0.4) level = 1;
+                
+                cell.classList.add(`level-${level}`);
+                
+                // Simple tooltip on title attribute
+                cell.title = `${level > 0 ? level * 3 : 'No'} contributions`;
+                
+                graphContainer.appendChild(cell);
+            }
+        }
+    </script>
+</body>
+</html>
