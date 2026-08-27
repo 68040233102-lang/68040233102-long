@@ -71,9 +71,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 54px;
-            color: white;
             border: 3px solid var(--card-border);
+            overflow: hidden; /* เพิ่มตรงนี้เพื่อให้รูปไม่ล้นกรอบวงกลม */
+        }
+
+        .avatar-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* ทำให้รูปเต็มกรอบและรักษาสัดส่วน */
         }
 
         .profile-name {
@@ -260,15 +265,16 @@
     <div class="container">
         <div class="sidebar">
             <div class="avatar-box">
-                <i class="fa-solid fa-user"></i>
+                <!-- เปลี่ยนจากไอคอนเป็นแท็กรูปภาพ และใส่ชื่อไฟล์ให้ตรง -->
+                <img src="28408.jpg" alt="Profile Picture of King">
             </div>
             <h1 class="profile-name">เสกสรร ดอกคำแดง</h1>
             <div class="profile-nickname">(คิง)</div>
-            <div class="student-id"><i class="fa-solid fa-id-card"></i> 68040233102</div>
+            <div class="student-id"><i class="fa-solid fa-id-card"></i> </div>
             <p class="bio-text">นักศึกษาสาขาวิทยาการคอมพิวเตอร์ ชอบเรียนรู้เทคโนโลยีใหม่ๆ และการพัฒนาโปรแกรม</p>
             
             <div class="btn-group">
-                <a href="https://github.com/68040233102-lang" target="_blank" class="btn btn-primary">
+                <a href="https://github.com/-lang" target="_blank" class="btn btn-primary">
                     <i class="fa-brands fa-github"></i> GitHub Profile
                 </a>
             </div>
