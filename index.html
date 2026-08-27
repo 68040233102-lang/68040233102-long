@@ -3,244 +3,244 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VirusOMO | Digital Portfolio</title>
-    
+    <title>เสกสรร (คิง) | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- 1. CSS Variables & Reset --- */
         :root {
-            --bg-color: #0d1117;        /* GitHub Dark Dimmed Background */
-            --card-bg: rgba(22, 27, 34, 0.7); /* Glassy Card */
-            --border-color: #30363d;
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --card-border: #30363d;
             --text-main: #c9d1d9;
             --text-muted: #8b949e;
-            --accent-color: #ff4d4d;    /* Red Accent */
-            --accent-hover: #ff1a1a;
-            --font-main: 'Prompt', sans-serif;
+            --accent-color: #58a6ff;
+            --accent-hover: #1f6feb;
+            --tag-bg: #21262d;
             --radius: 12px;
-            --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Prompt', sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
-            background-image: radial-gradient(circle at top right, rgba(255, 77, 77, 0.1), transparent 40%);
             color: var(--text-main);
-            font-family: var(--font-main);
-            line-height: 1.6;
             min-height: 100vh;
+            padding: 30px 20px;
             display: flex;
             justify-content: center;
-            padding: 2rem;
         }
 
-        /* --- 2. Layout Structure --- */
         .container {
-            display: grid;
-            grid-template-columns: 280px 1fr; /* Sidebar fixed, Content auto */
-            gap: 24px;
-            max-width: 1200px;
+            max-width: 1000px;
             width: 100%;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 24px;
         }
 
-        /* --- 3. Glassmorphism Card Style --- */
-        .glass-card {
-            background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 24px;
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
         }
 
-        /* --- 4. Sidebar --- */
+        /* Sidebar Profile */
         .sidebar {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 24px;
             text-align: center;
             height: fit-content;
-            position: sticky;
-            top: 2rem;
         }
 
-        .profile-img {
-            width: 200px;
-            height: 200px;
+        .avatar-box {
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 16px;
             border-radius: 50%;
-            border: 4px solid var(--border-color);
-            margin-bottom: 1rem;
-            object-fit: cover;
-            box-shadow: 0 0 20px rgba(255, 77, 77, 0.2);
-            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, #1f6feb, #f78166);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 54px;
+            color: white;
+            border: 3px solid var(--card-border);
         }
 
-        .profile-img:hover {
-            transform: scale(1.05);
-            border-color: var(--accent-color);
-        }
-
-        .full-name {
-            font-size: 1.5rem;
+        .profile-name {
+            font-size: 1.3rem;
             font-weight: 600;
-            color: #fff;
+            color: #ffffff;
             margin-bottom: 4px;
         }
 
-        .username {
-            font-size: 1.1rem;
+        .profile-nickname {
+            color: var(--accent-color);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .student-id {
+            display: inline-block;
+            background: var(--tag-bg);
+            border: 1px solid var(--card-border);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 12px;
+            margin-bottom: 16px;
         }
 
-        .bio {
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-btn {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            background: #21262d;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: var(--text-main);
-            text-decoration: none;
+        .bio-text {
             font-size: 0.9rem;
-            transition: all 0.2s;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.2s;
         }
 
-        .contact-btn:hover {
-            background: var(--border-color);
-            color: var(--accent-color);
-            border-color: var(--accent-color);
+        .btn-primary {
+            background: var(--tag-bg);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
         }
 
-        /* --- 5. Main Content --- */
+        .btn-primary:hover {
+            background: #30363d;
+            border-color: #8b949e;
+        }
+
+        /* Main Content */
         .main-content {
             display: flex;
             flex-direction: column;
-            gap: 24px;
+            gap: 20px;
         }
 
-        /* Section: Intro / Digital Resume */
-        .intro-header {
-            font-size: 0.9rem;
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            padding: 24px;
+        }
+
+        .card-header-badge {
+            font-size: 0.75rem;
             color: var(--text-muted);
-            margin-bottom: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 8px;
         }
 
-        .typing-container {
-            font-size: 1.8rem;
-            font-weight: 700;
+        .card-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
             margin-bottom: 20px;
-            min-height: 3.6rem; /* Prevent layout shift */
         }
 
-        .cursor {
-            display: inline-block;
-            width: 3px;
-            background-color: var(--accent-color);
-            animation: blink 1s infinite;
+        .section-heading {
+            font-size: 1.1rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        @keyframes blink {
-            50% { opacity: 0; }
-        }
-
-        .tech-stack {
+        /* Tags */
+        .tag-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 15px;
+            gap: 8px;
         }
 
         .tag {
-            background: rgba(255, 77, 77, 0.1);
-            color: var(--accent-color);
-            padding: 4px 12px;
+            background: var(--tag-bg);
+            border: 1px solid var(--card-border);
+            padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* Section: Projects Grid */
-        .section-title {
-            font-size: 1.2rem;
-            margin-bottom: 16px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
+            color: var(--text-main);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 6px;
         }
 
+        .tag-icon {
+            color: var(--accent-color);
+        }
+
+        /* Project Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 16px;
+            margin-top: 12px;
         }
 
         .project-card {
-            background: rgba(13, 17, 23, 0.5);
-            border: 1px solid var(--border-color);
+            background: var(--bg-color);
+            border: 1px solid var(--card-border);
             border-radius: 8px;
             padding: 16px;
-            transition: transform 0.2s, border-color 0.2s;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
+            transition: 0.2s;
         }
 
         .project-card:hover {
-            transform: translateY(-4px);
             border-color: var(--accent-color);
-        }
-
-        .project-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
+            transform: translateY(-2px);
         }
 
         .project-title {
-            font-size: 1rem;
-            font-weight: 600;
             color: var(--accent-color);
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .project-desc {
             font-size: 0.85rem;
             color: var(--text-muted);
-            margin-bottom: 16px;
-        }
-
-        .project-meta {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
+            line-height: 1.4;
+            margin-bottom: 12px;
         }
 
         .lang-dot {
@@ -248,231 +248,87 @@
             height: 10px;
             border-radius: 50%;
             display: inline-block;
-            margin-right: 4px;
         }
 
-        /* Section: Contribution Graph */
-        .graph-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            overflow-x: auto; /* Scroll on mobile if needed */
-        }
-        
-        .graph-grid {
-            display: grid;
-            grid-template-columns: repeat(52, 1fr); /* 52 Weeks */
-            gap: 3px;
-        }
-
-        .graph-cell {
-            width: 12px;
-            height: 12px;
-            border-radius: 2px;
-            background-color: #161b22;
-            transition: all 0.2s ease;
-        }
-
-        .graph-cell:hover {
-            transform: scale(1.3);
-            border: 1px solid #fff;
-            z-index: 2;
-        }
-
-        /* Colors for graph levels */
-        .level-0 { background-color: #161b22; }
-        .level-1 { background-color: #490c0c; }
-        .level-2 { background-color: #961818; }
-        .level-3 { background-color: #d92626; }
-        .level-4 { background-color: #ff4d4d; }
-
-        /* --- 6. Responsive Design --- */
-        @media (max-width: 768px) {
-            .container {
-                grid-template-columns: 1fr; /* Stack vertically */
-            }
-
-            .sidebar {
-                position: relative; /* Remove sticky on mobile */
-                top: 0;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr; /* 1 Column for projects */
-            }
-
-            .typing-container {
-                font-size: 1.4rem;
-            }
-        }
+        .dot-c { background-color: #a8b9cc; }
+        .dot-java { background-color: #b07219; }
+        .dot-html { background-color: #e34c26; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        
-        <aside class="sidebar glass-card">
-            <img src="meon.png" alt="Profile" class="profile-img">
+        <div class="sidebar">
+            <div class="avatar-box">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <h1 class="profile-name">เสกสรร ดอกคำแดง</h1>
+            <div class="profile-nickname">(คิง)</div>
+            <div class="student-id"><i class="fa-solid fa-id-card"></i> 68040233102</div>
+            <p class="bio-text">นักศึกษาสาขาวิทยาการคอมพิวเตอร์ ชอบเรียนรู้เทคโนโลยีใหม่ๆ และการพัฒนาโปรแกรม</p>
             
-            <h1 class="full-name">เสกสรร ดอกคำแดง</h1>
-            <p class="username">102</p>
-            <p class="bio">หน่วยสนับสนุน | Support Unit<br>Creating bugs... I mean features.</p>
-            
-            <div style="width: 100%; margin-top: 1rem;">
-                <a href="#" class="contact-btn"><i class="fab fa-github"></i> Follow on GitHub</a>
-                <a href="#" class="contact-btn"><i class="fas fa-envelope"></i> Email Me</a>
-                <a href="#" class="contact-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <div class="contact-btn" style="border: none; background: transparent; cursor: default;">
-                    <i class="fas fa-map-marker-alt"></i> Bangkok, Thailand
+            <div class="btn-group">
+                <a href="https://github.com/68040233102-lang" target="_blank" class="btn btn-primary">
+                    <i class="fa-brands fa-github"></i> GitHub Profile
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="card">
+                <div class="card-header-badge">README.md</div>
+                <h2 class="card-title">สวัสดีครับ! ผมคิง 👋</h2>
+                <p class="card-desc">
+                    ยินดีต้อนรับสู่หน้า Portfolio ของผมครับ กำลังศึกษาและฝึกฝนการเขียนโค้ด มุ่งมั่นที่จะพัฒนาทักษะการเขียนโปรแกรมอย่างต่อเนื่อง!
+                </p>
+
+                <h3 class="section-heading"><i class="fa-solid fa-code" style="color:#58a6ff;"></i> ภาษาคอมพิวเตอร์ที่เคยเรียน (Tech Stack)</h3>
+                <div class="tag-list" style="margin-bottom: 24px;">
+                    <span class="tag"><i class="fa-solid fa-c tag-icon"></i> ภาษา C</span>
+                    <span class="tag"><i class="fa-brands fa-java tag-icon"></i> Java</span>
+                    <span class="tag"><i class="fa-brands fa-html5 tag-icon"></i> HTML / CSS</span>
+                </div>
+
+                <h3 class="section-heading"><i class="fa-solid fa-heart" style="color:#f78166;"></i> งานอดิเรกและความสนใจ (Hobbies & Interests)</h3>
+                <div class="tag-list">
+                    <span class="tag"><i class="fa-solid fa-gamepad tag-icon"></i> เล่นเกม (Gaming)</span>
+                    <span class="tag"><i class="fa-solid fa-music tag-icon"></i> ฟังเพลง (Music)</span>
+                    <span class="tag"><i class="fa-solid fa-laptop-code tag-icon"></i> เขียนโค้ด (Coding)</span>
                 </div>
             </div>
-        </aside>
 
-        <main class="main-content">
-            
-            <section class="glass-card">
-                <p class="intro-header">README.md</p>
-                <div class="typing-container">
-                    สวัสดี! ผมชื่อ เสกสรรณ 👋<br>
-                    <span id="typing-text"></span><span class="cursor">&nbsp;</span>
-                </div>
-                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 20px 0;
-                    <p style="color: var(--text-muted); margin-bottom: 10px;">Tech Stack & Interests:</p>
-                <div class="tech-stack">
-                    <span class="tag">💻 Frontend Dev</span>
-                    <span class="tag">🎨 UI/UX Design</span>
-                    <span class="tag">🚀 JavaScript</span>
-                    <span class="tag">⚛️ React</span>
-                    <span class="tag">🔥 Firebase</span>
-                </div>
-            </section>
-
-            <section>
-                <h2 class="section-title"><i class="fas fa-thumbtack"></i> Pinned Projects</h2>
+            <div class="card">
+                <h3 class="section-heading"><i class="fa-solid fa-thumbtack" style="color:#3fb950;"></i> ผลงานและโปรเจกต์ (Pinned Projects)</h3>
                 <div class="projects-grid">
+                    
                     <div class="project-card">
-                        <div>
-                            <div class="project-header">
-                                <span class="project-title"><i class="fas fa-book-journal-whills"></i> Project Alpha</span>
-                                <span style="font-size: 0.8rem; border: 1px solid var(--border-color); padding: 2px 6px; border-radius: 10px;">Public</span>
-                            </div>
-                            <p class="project-desc">ระบบจัดการฐานข้อมูลไวรัสจำลอง สำหรับหน่วยงานสนับสนุน</p>
+                        <div class="project-title">
+                            <i class="fa-regular fa-bookmark"></i> C-Programming-Labs
                         </div>
-                        <div class="project-meta">
-                            <span><span class="lang-dot" style="background: #f1e05a;"></span>JavaScript</span>
-                            <span><i class="far fa-star"></i> 12</span>
-                        </div>
+                        <div class="project-desc">แบบฝึกหัดและโปรเจกต์คำนวณพื้นฐานด้วยภาษา C</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);"><span class="lang-dot dot-c"></span> C</div>
                     </div>
 
                     <div class="project-card">
-                        <div>
-                            <div class="project-header">
-                                <span class="project-title"><i class="fas fa-shield-alt"></i> Security-Grid</span>
-                                <span style="font-size: 0.8rem; border: 1px solid var(--border-color); padding: 2px 6px; border-radius: 10px;">Public</span>
-                            </div>
-                            <p class="project-desc">Dashboard มอนิเตอร์ความปลอดภัยเครือข่าย แบบ Real-time</p>
+                        <div class="project-title">
+                            <i class="fa-regular fa-bookmark"></i> Java-OOP-Basic
                         </div>
-                        <div class="project-meta">
-                            <span><span class="lang-dot" style="background: #e34c26;"></span>HTML</span>
-                            <span><i class="far fa-star"></i> 8</span>
-                        </div>
+                        <div class="project-desc">เรียนรู้การเขียนโปรแกรมเชิงวัตถุด้วยภาษา Java</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);"><span class="lang-dot dot-java"></span> Java</div>
                     </div>
 
                     <div class="project-card">
-                        <div>
-                            <div class="project-header">
-                                <span class="project-title"><i class="fas fa-bolt"></i> Fast-API-Connect</span>
-                            </div>
-                            <p class="project-desc">ตัวเชื่อมต่อ API ความเร็วสูง พัฒนาด้วย Node.js</p>
+                        <div class="project-title">
+                            <i class="fa-regular fa-bookmark"></i> My-Web-Portfolio
                         </div>
-                        <div class="project-meta">
-                            <span><span class="lang-dot" style="background: #563d7c;"></span>CSS</span>
-                            <span><i class="far fa-star"></i> 5</span>
-                        </div>
+                        <div class="project-desc">เว็บไซต์แนะนำตัวเองบน GitHub Pages</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);"><span class="lang-dot dot-html"></span> HTML</div>
                     </div>
 
-                     <div class="project-card">
-                        <div>
-                            <div class="project-header">
-                                <span class="project-title"><i class="fas fa-code"></i> Portfolio-v1</span>
-                            </div>
-                            <p class="project-desc">เว็บพอร์ตโฟลิโอส่วนตัวเวอร์ชันแรก</p>
-                        </div>
-                        <div class="project-meta">
-                            <span><span class="lang-dot" style="background: #f1e05a;"></span>JS</span>
-                            <span><i class="far fa-star"></i> 20</span>
-                        </div>
-                    </div>
                 </div>
-            </section>
-
-            <section class="glass-card">
-                <h2 class="section-title" style="font-size: 1rem; border:none;"><i class="fas fa-calendar-alt"></i> 1,337 contributions in the last year</h2>
-                <div class="graph-container">
-                    <div class="graph-grid" id="contribution-graph">
-                        </div>
-                    <div style="display: flex; justify-content: flex-end; align-items: center; gap: 5px; font-size: 0.7rem; color: var(--text-muted); margin-top: 8px;">
-                        Less
-                        <div class="graph-cell level-0"></div>
-                        <div class="graph-cell level-1"></div>
-                        <div class="graph-cell level-2"></div>
-                        <div class="graph-cell level-3"></div>
-                        <div class="graph-cell level-4"></div>
-                        More
-                    </div>
-                </div>
-            </section>
-
-        </main>
+            </div>
+        </div>
     </div>
 
-    <script>
-        // --- 1. Typing Effect Logic ---
-        const textToType = "ผมชอบเขียนโค้ดและสร้างสรรค์สิ่งใหม่ๆ...";
-        const typingElement = document.getElementById('typing-text');
-        let charIndex = 0;
-
-        function typeWriter() {
-            if (charIndex < textToType.length) {
-                typingElement.innerHTML += textToType.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeWriter, 50); // Speed of typing
-            }
-        }
-
-        // Start typing when page loads
-        window.onload = () => {
-            typeWriter();
-            generateGraph();
-        };
-
-        // --- 2. Mock Contribution Graph Generator ---
-        function generateGraph() {
-            const graphContainer = document.getElementById('contribution-graph');
-            const totalWeeks = 52;
-            const daysPerWeek = 7;
-            const totalCells = totalWeeks * daysPerWeek;
-
-            for (let i = 0; i < totalCells; i++) {
-                const cell = document.createElement('div');
-                cell.classList.add('graph-cell');
-                
-                // Randomly assign activity levels (weighted towards level 0-1 for realism)
-                const rand = Math.random();
-                let level = 0;
-                if (rand > 0.9) level = 4;
-                else if (rand > 0.8) level = 3;
-                else if (rand > 0.6) level = 2;
-                else if (rand > 0.4) level = 1;
-                
-                cell.classList.add(`level-${level}`);
-                
-                // Simple tooltip on title attribute
-                cell.title = `${level > 0 ? level * 3 : 'No'} contributions`;
-                
-                graphContainer.appendChild(cell);
-            }
-        }
-    </script>
 </body>
 </html>
